@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveTalkFileCollaborationSample", "LiveTalkFileCollaborationSample\LiveTalkFileCollaborationSample.csproj", "{061AA338-1DFA-493A-BF0B-9141D29BCBCE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{061AA338-1DFA-493A-BF0B-9141D29BCBCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{061AA338-1DFA-493A-BF0B-9141D29BCBCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{061AA338-1DFA-493A-BF0B-9141D29BCBCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{061AA338-1DFA-493A-BF0B-9141D29BCBCE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ABC3FB20-BCD6-4BE1-BF54-BA8BA8492CC5}
+	EndGlobalSection
+EndGlobal
