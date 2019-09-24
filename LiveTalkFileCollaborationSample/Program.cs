@@ -10,7 +10,7 @@ namespace LiveTalkFileCollaborationSample
 {
     class Program
     {
-        static FileCollaboration FileInterface;
+        static LiveTalk.FileCollaboration FileInterface;
         const string IDTag = " ";
 
         static void Main(string[] args)
@@ -31,7 +31,7 @@ namespace LiveTalkFileCollaborationSample
             }
             Console.WriteLine("InputCSVFileName  :" + param[0]);
             Console.WriteLine("OutputTextFileName:" + param[1]);
-            FileInterface = new FileCollaboration(param[0], param[1]);
+            FileInterface = new LiveTalk.FileCollaboration(param[0], param[1]);
 
             // ファイル入力(LiveTalk常時ファイル出力からの入力)
             FileInterface.RemoteMessageReceived += (s) =>
