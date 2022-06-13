@@ -1,6 +1,7 @@
 ﻿# LiveTalkFileCollaborationSample
 LiveTalkのファイル入出力インターフェースと連携するサンプル
 ![Process](https://github.com/FujitsuSSL-LiveTalk/LiveTalkFileCollaborationSample/blob/images/README.png)
+本サンプルコードは、.NET 6.0で作成しています。コードレベルでは.NET Framework 4.6と互換性があります。
 
 # サンプルコードの動作
 サンプルコード動作を簡単に説明すると次のような動作をします。

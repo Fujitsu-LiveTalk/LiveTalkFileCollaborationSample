@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright 2019 FUJITSU SOCIAL SCIENCE LABORATORY LIMITED
+ * Copyright 2022 FUJITSU LIMITED
  * クラス名　：FileCollaboration
  * 概要      ：LiveTalkの常時ファイル入力/常時ファイル出力と連携
 */
@@ -133,17 +133,13 @@ namespace LiveTalk
             {
                 using (var saveFile = new System.IO.FileStream(this.OutputFileName, FileMode.Append, FileAccess.Write, FileShare.Delete | FileShare.ReadWrite))
                 {
-                    using (Stream fs = saveFile)
+                    using (StreamWriter sw = new StreamWriter(saveFile, Encoding.UTF8))
                     {
-
-                        using (StreamWriter sw = new StreamWriter(fs, Encoding.UTF8))
-                        {
-                            sw.WriteLine(message);
-                            sw.Flush();
-                            sw.Close();
-                        }
-                        fs.Close();
+                        sw.WriteLine(message);
+                        sw.Flush();
+                        sw.Close();
                     }
+                    saveFile.Close();
                 }
             }
         }

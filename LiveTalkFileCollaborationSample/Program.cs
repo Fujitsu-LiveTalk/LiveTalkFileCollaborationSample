@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright 2019 FUJITSU SOCIAL SCIENCE LABORATORY LIMITED
+ * Copyright 2022 FUJITSU LIMITED
  * システム名：LiveTalkFileCollaborationSample
  * 概要      ：LiveTalkファイル連携サンプルアプリ
 */
@@ -35,39 +35,39 @@ namespace LiveTalkFileCollaborationSample
 
             // ファイル入力(LiveTalk常時ファイル出力からの入力)
             FileInterface.RemoteMessageReceived += (s) =>
+            {
+                var reg = new Regex(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
+                var items = reg.Split(s);
+                var name = "\"" + System.IO.Path.GetFileNameWithoutExtension(param[1]).ToUpper() + "\"";
+
+                Console.WriteLine(">>>>>>>");
+                if (items[2].IndexOf(IDTag) == 1 && items[1] == name)
+                {
+                    // 自メッセージ出力分なので無視
+                }
+                else
+                {
+                    Console.WriteLine("DateTime:" + items[0]);
+                    Console.WriteLine("Speaker:" + items[1]);
+                    Console.WriteLine("Speech contents:" + items[2]);
+                    Console.WriteLine("Translate content:" + items[3]);
+
+                    //Zinrai連携
+                    //var answer = model.GetAnswer(items[2]);
+                    var answer = "";
+                    if (!string.IsNullOrEmpty(answer))
+                    {
+                        var answers = answer.Split('\n');
+                        foreach (var item in answers)
                         {
-                            var reg = new Regex(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
-                            var items = reg.Split(s);
-                            var name = "\"" + System.IO.Path.GetFileNameWithoutExtension(param[1]).ToUpper() + "\"";
-
-                            Console.WriteLine(">>>>>>>");
-                            if (items[2].IndexOf(IDTag) == 1 && items[1] == name)
+                            if (!string.IsNullOrEmpty(item))
                             {
-                                // 自メッセージ出力分なので無視
+                                FileInterface.SendMessage(IDTag + item);
                             }
-                            else
-                            {
-                                Console.WriteLine("DateTime:" + items[0]);
-                                Console.WriteLine("Speaker:" + items[1]);
-                                Console.WriteLine("Speech contents:" + items[2]);
-                                Console.WriteLine("Translate content:" + items[3]);
-
-                                //Zinrai連携
-                                //var answer = model.GetAnswer(items[2]);
-                                var answer = "";
-                                if (!string.IsNullOrEmpty(answer))
-                                {
-                                    var answers = answer.Split('\n');
-                                    foreach (var item in answers)
-                                    {
-                                        if (!string.IsNullOrEmpty(item))
-                                        {
-                                            FileInterface.SendMessage(IDTag + item);
-                                        }
-                                    }
-                                }
-                            }
-                        };
+                        }
+                    }
+                }
+            };
             FileInterface.WatchFileSart();
 
             // ファイル出力ループ
