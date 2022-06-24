@@ -68,7 +68,7 @@ namespace LiveTalkFileCollaborationSample
                     }
                 }
             };
-            FileInterface.WatchFileSart();
+            FileInterface.WatchFileStart();
 
             // ファイル出力ループ
             while (true)

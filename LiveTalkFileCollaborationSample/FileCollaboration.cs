@@ -26,7 +26,7 @@ namespace LiveTalk
         /// <summary>
         /// ファイル監視を開始する
         /// </summary>
-        public void WatchFileSart()
+        public void WatchFileStart()
         {
             if (string.IsNullOrEmpty(this.InputFileName))
             {
